@@ -1,0 +1,37 @@
+cutoff: 5.0
+
+# dataset specific
+train_path: "data/dataset_3BPA/train_300K.xyz"
+valid_frac: 0.1
+test_paths:
+    - "data/dataset_3BPA/test_300K.xyz"
+    - "data/dataset_3BPA/test_600K.xyz"
+    - "data/dataset_3BPA/test_1200K.xyz"
+atomic_numbers: [1, 6, 7, 8]
+# isolated atom energies (eV)
+atom_energies:
+    1: -13.587222780835477
+    6: -1029.4889999855063
+    7: -1484.9814568572233
+    8: -2041.9816003861047
+
+# model specific
+hidden_size: 128
+lmax: 3
+n_layers: 5
+radial_basis_size: 8
+radial_mlp_size: 64
+radial_mlp_layers: 3
+radial_polynomial_p: 2.0
+mlp_init_scale: 4.0
+
+# training specific
+learning_rate: 0.01
+lr_schedule_patience: 50
+lr_schedule_factor: 0.8
+batch_size: 5
+n_epochs: 100_000
+energy_weight: 1.0
+force_weight: 1.0
+log_every: 100
+ema_decay: 0.99

@@ -1,0 +1,47 @@
+[project]
+name = "nequip-eqx"
+version = "0.1.0"
+description = "JAX implementation of the neural network interatomic potential NequIP"
+readme = "README.md"
+authors = [
+    { name = "Teddy Koker", email = "teddy.koker@gmail.com" }
+]
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+
+dependencies = [
+    "jax[cuda12]>=0.4.34; sys_platform == 'linux'",
+    "jax>=0.4.34; sys_platform == 'darwin'",
+    "e3nn-jax>=0.20.7",
+    "jraph>=0.0.6.dev0",
+    "equinox>=0.11.11",
+    "optax>=0.2.4",
+    "ase>=3.24.0",
+    "tqdm>=4.67.1",
+    "wandb>=0.19.11",
+    "pyyaml>=6.0.2",
+]
+
+[project.urls]
+Homepage = "https://pypi.org/project/nequip-eqx/"
+Repository = "https://github.com/teddykoker/nequip-eqx"
+
+
+[project.scripts]
+nequip_eqx_train = "nequip_eqx.train:main"
+nequip_eqx_test = "nequip_eqx.test:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+
+[tool.hatch.build]
+include = ["nequip_eqx/*"]
+
+[dependency-groups]
+dev = [
+    "ipython>=8.36.0",
+    "pre-commit>=4.1.0",
+    "pytest>=8.3.5",
+]
