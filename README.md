@@ -101,7 +101,7 @@ We use the same hyperparameters as [1], which can be viewed in [`configs/3bpa.ym
     \sqrt{\frac{4.0}{\mathrm{fan\\_in}}}$. 
  * Isolated atom energies are added to each predicted node energy.
     
-Resulting energy (E) and force (F) errors in meV and meV/Å respectively.
+Resulting energy (E) and force (F) RMSE in meV and meV/Å respectively.
 
 | Code     | [`nequip`](https://github.com/mir-group/nequip) | [`mace`](https://github.com/ACEsuit/mace)  | `nequip-eqx` (this repo) |
 |--------------|--------------|-------------------|---|
