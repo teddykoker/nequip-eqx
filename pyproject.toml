@@ -20,6 +20,7 @@ dependencies = [
     "tqdm>=4.67.1",
     "wandb>=0.19.11",
     "pyyaml>=6.0.2",
+    "matscipy>=1.1.1",
 ]
 
 [project.urls]

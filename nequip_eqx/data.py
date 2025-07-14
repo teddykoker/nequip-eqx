@@ -5,6 +5,7 @@ import ase
 import ase.io
 import ase.neighborlist
 import jraph
+import matscipy.neighbours
 import numpy as np
 from tqdm import tqdm
 
@@ -16,9 +17,7 @@ def preprocess_graph(
     targets: bool,
 ) -> jraph.GraphsTuple:
     """Preprocess ase.Atoms object into a jraph.GraphsTuple, with optional targets"""
-    src, dst = ase.neighborlist.primitive_neighbor_list(
-        "ij", atoms.pbc, atoms.cell, atoms.positions, cutoff
-    )
+    src, dst = matscipy.neighbours.neighbour_list("ij", atoms, cutoff)
     forces = atoms.get_forces().astype(np.float32) if targets else None
     energy = (
         np.array([atoms.get_potential_energy()]).astype(np.float32) if targets else None
