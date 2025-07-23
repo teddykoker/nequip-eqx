@@ -1,6 +1,6 @@
-![molecular dynamics animation](images/md.gif)
+<!-- ![molecular dynamics animation](images/md.gif)
 
-*3BPA molecular dynamics using nequip-eqx*.
+*3BPA molecular dynamics using nequip-eqx*. -->
 
 # nequip-eqx
 
@@ -111,6 +111,15 @@ Resulting energy (E) and force (F) RMSE in meV and meV/Å respectively.
 | 600 K F | 26.4 (0.1)   | 27.3 (0.3)        | **24.2**
 | 1200 K E | 38.5 (1.6)   | 40.8 (1.3)        | **34.1**
 | 1200 K F | 76.2 (1.1)   | 86.4 (1.5)        | **75.4**
+
+## Caveats
+
+JAX, by default, uses TensorFloat-32 (tf32) for matmul operations on hardware
+that supports it, i.e. NVIDIA Ampere GPUs and later. This is typically significantly
+faster than float32, however is not supported on older GPUs, e.g. V100. For this reason, we
+[force matmuls](nequip_eqx/__init__.py#L10) to use float32 on all hardware. If
+you are training/running inference exclusively on GPUs that support tf32, this
+line can be removed.
 
 ## See also
 
