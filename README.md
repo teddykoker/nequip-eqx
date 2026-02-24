@@ -2,6 +2,8 @@
 
 *3BPA molecular dynamics using nequip-eqx*. -->
 
+**Update! Checkout [nequix](https://github.com/atomicarchitects/nequix/), a universal interatomic potential with JAX and PyTorch backends.**
+
 # nequip-eqx
 
 `nequip-eqx` is a JAX implementation of the neural network interatomic potential
